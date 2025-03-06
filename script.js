@@ -25,3 +25,13 @@ function addResult(text, isPal) {
 function clearResult() {
     resultDiv.textContent = "";
 }
+
+checkButton.addEventListener("click", function () {
+    const inputValue = textInput.value.trim();
+    if (inputValue === "") {
+        alert("Please input a value");
+        return;
+    }
+    const cleanedStr =  cleanInputString(inputValue);
+    addResult(inputValue, isPalindrome(cleanedStr));
+});
