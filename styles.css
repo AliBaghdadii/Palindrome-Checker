@@ -80,11 +80,23 @@ label {
     text-align: center;
 }
 
-.results-div {
+/* .results-div {
     overflow-y: auto;
     word-wrap: break-word;
     min-height: 50px;
     color: black;
+} */
+
+.results-div {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    color: #000;
+    border: 2px solid #000;
 }
 
 .hidden {
