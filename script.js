@@ -23,5 +23,5 @@ function addResult(text, isPal) {
 }
 
 function clearResult() {
-
+    resultDiv.textContent = "";
 }
