@@ -19,6 +19,7 @@ function isPalindrome(str) {
 
 function addResult(text, isPal) {
     clearResult();
+    resultDiv.remove("hidden");
     resultDiv.textContent = isPal ? `${text} is a palindrome` : `${text} is not a palindrome`
 }
 
