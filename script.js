@@ -3,24 +3,23 @@ const checkButton = document.getElementById("check-btn");
 const resultDiv = document.getElementById("result");
 
 function cleanInputString(str) {
-    const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-    return cleanedStr;
+    return str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
 }
 
 function isPalindrome(str) {
     let len = str.length;
     for (let i = 0; i < len / 2; i++) {
-        if (str[i] != str[len - i - 1]) {
+        if (str[i] !== str[len - i - 1]) {
             return false;
         }
     }
     return true;
 }
 
-function addResult(text, isPal) {
+function addResult(originalText, isPal) {
     clearResult();
-    resultDiv.remove("hidden");
-    resultDiv.textContent = isPal ? `${text} is a palindrome` : `${text} is not a palindrome`
+    resultDiv.classList.remove("hidden");
+    resultDiv.textContent = isPal ? `${originalText} is a palindrome` : `${originalText} is not a palindrome`;
 }
 
 function clearResult() {
@@ -33,6 +32,13 @@ checkButton.addEventListener("click", function () {
         alert("Please input a value");
         return;
     }
-    const cleanedStr =  cleanInputString(inputValue);
+
+    const cleanedStr = cleanInputString(inputValue);
+    
+    if (cleanedStr === "") {
+        alert("Please enter at least one valid character (letters or numbers).");
+        return;
+    }
+
     addResult(inputValue, isPalindrome(cleanedStr));
 });
